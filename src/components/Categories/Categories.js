@@ -16,7 +16,14 @@ function Categories() {
 
     const categoryItems = categories.map(category => <CategoryItem categoryName={category} key={`category-${category}`}/>)
 
-    return <S.CategoriesWrapper>{ categoryItems }</S.CategoriesWrapper>
+    return (
+        <S.CategoriesWrapper>
+            <S.CategoryTitle>
+                카테고리
+            </S.CategoryTitle>
+            { categoryItems }
+        </S.CategoriesWrapper>
+    )
 }
 
 export default Categories;
