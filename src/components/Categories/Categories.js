@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import * as S from './Styles';
 import CategoryItem from '../CategoryItem/CategoryItem';
+import { fetchCategoriesThunk } from '../../modules/category';
 
 function Categories() {
-    const [categoryItems, setCategoryItems] = useState([]);
+    const dispatch = useDispatch()
+    const categories = useSelector(
+        state => state.category.categories
+    )
 
     useEffect(() => {
-        axios.get('http://localhost:8080/getCategories').then(res => {
-            if(res.status === 200)
-                setCategoryItems(res.data)
-        })
-    }, [])
+        dispatch(fetchCategoriesThunk());
+    }, [dispatch])
 
-    const categories = categoryItems.map(category => <CategoryItem categoryName={category} key={`category-${category}`}/>)
+    const categoryItems = categories.map(category => <CategoryItem categoryName={category} key={`category-${category}`}/>)
 
-    return <S.CategoriesWrapper>{categories}</S.CategoriesWrapper>
+    return <S.CategoriesWrapper>{ categoryItems }</S.CategoriesWrapper>
 }
 
 export default Categories;
