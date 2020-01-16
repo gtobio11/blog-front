@@ -22,6 +22,14 @@ export const PostDateAndCategory = styled.span`
     font-size: 0.8rem;
 `
 
+
+export const PostDelete = styled.button`
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.3rem;
+    border: 1px solid black;
+    box-sizing: border-box;
+`
+
 export const PostReplyWrapper = styled.div`
     margin-top: 1rem;
     paddin-top: 1rem;
