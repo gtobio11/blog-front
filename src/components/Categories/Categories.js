@@ -21,6 +21,7 @@ function Categories() {
             <S.CategoryTitle>
                 카테고리
             </S.CategoryTitle>
+            <CategoryItem categoryName={'전체 보기'} />
             { categoryItems }
         </S.CategoriesWrapper>
     )
